@@ -1,0 +1,30 @@
+@use '../../styles/variables.scss' as *;
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    padding: 3rem 0;
+    gap: 1rem;
+    margin: 0 $margin-mobile;
+
+    &__link {
+        font-family: 'Libre Baskerville';
+        text-decoration: none;
+        text-transform: lowercase;
+        font-size: 1rem;
+        font-weight: 400;
+        color: $color6;
+
+        &.active {
+            text-transform: uppercase;
+            font-size: 2rem;
+            color: $color7;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+
+}
