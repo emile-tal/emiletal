@@ -1,10 +1,13 @@
-import { Header } from "../../components/Header/Header";
-import { Main } from "../../components/Main/Main";
+import './HomePage.scss'
+
+import { AboutSection } from "../../components/AboutSection/AboutSection";
+import { SkillsSection } from '../../components/SkillsSection/SkillsSection';
 
 export function HomePage() {
     return (
-        <>
-            <Main />
-        </>
+        <main className='main'>
+            <AboutSection />
+            <SkillsSection />
+        </main>
     )
 }

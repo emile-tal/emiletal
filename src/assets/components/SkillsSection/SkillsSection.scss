@@ -1,0 +1,30 @@
+@use '../../styles/variables' as *;
+
+.skills {
+    margin: 0 $margin-mobile;
+    font-family: 'Poppins';
+
+    &__heading {
+        font-weight: 400;
+        padding-bottom: 0.5rem;
+        color: $color7;
+    }
+
+    &__icon-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem 0;
+        flex-wrap: wrap;
+    }
+
+    &__icon {
+        height: 3.75rem;
+        filter: sepia(100%);
+
+        &:hover {
+            cursor: pointer;
+            filter: sepia(0);
+        }
+    }
+}
