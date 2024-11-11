@@ -9,7 +9,9 @@ export function AboutSection() {
                 <h2 className='about__heading'>About me</h2>
                 <p className='about__content'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto reprehenderit quidem fuga laborum alias quo possimus labore dolorum iste officiis, reiciendis facere natus! Accusantium et deleniti eligendi enim, iste ratione.</p>
             </div>
-            <img src={profilePhoto} className='about__image' alt='Emile Tal profile photo' />
+            <div className='about__image-container'>
+                <img src={profilePhoto} className='about__image' alt='Emile Tal profile photo' />
+            </div>
         </section>
     )
 }
