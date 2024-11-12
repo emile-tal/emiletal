@@ -2,8 +2,6 @@
 
 .map-pin {
     position: absolute;
-    top: 43%;
-    left: 23%;
     background-color: $color4;
     width: 1rem;
     height: 1rem;
@@ -13,6 +11,21 @@
     justify-content: center;
     align-items: center;
     border: 0.01rem solid #FFF;
+
+    &--nyc {
+        top: 43%;
+        left: 23%;
+    }
+
+    &--lausanne {
+        top: 40.5%;
+        right: 48%;
+    }
+
+    &--hk {
+        top: 49%;
+        right: 15%;
+    }
 
     &__number {
         color: #FFF;
