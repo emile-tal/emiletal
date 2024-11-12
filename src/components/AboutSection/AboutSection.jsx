@@ -1,6 +1,6 @@
 import './AboutSection.scss'
 
-import profilePhoto from '../../images/emile_tal_photo.jpg'
+import profilePhoto from '../../assets/images/emile_tal_photo.jpg'
 
 export function AboutSection() {
     return (

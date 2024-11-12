@@ -1,0 +1,5 @@
+@use '../../assets/styles/variables' as *;
+
+.header {
+    background-image: linear-gradient($color2, $color1);
+}

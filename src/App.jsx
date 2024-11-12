@@ -2,9 +2,9 @@ import './App.scss'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { Header } from './assets/components/Header/Header'
-import { HomePage } from './assets/pages/HomePage/HomePage'
-import { ProjectsPage } from './assets/pages/ProjectsPage/ProjectsPage'
+import { Header } from './components/Header/Header'
+import { HomePage } from './pages/HomePage/HomePage'
+import { ProjectsPage } from './pages/ProjectsPage/ProjectsPage'
 
 function App() {
 

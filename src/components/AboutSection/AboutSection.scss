@@ -1,18 +1,21 @@
-@use '../../styles/variables' as *;
+@use '../../assets/styles/variables' as *;
 
 .about {
     margin: 0 $margin-mobile;
-    font-family: 'Poppins';
 
     &__heading {
         font-weight: 400;
         padding-bottom: 0.5rem;
-        color: $color7;
+        color: $color4;
+        font-family: 'Libre Baskerville', 'Times New Roman', Times, serif;
+        font-size: 1.5rem;
     }
 
     &__content {
-        color: $color6;
+        color: $color3;
         padding: 0.5rem 0;
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        font-size: 0.8rem;
     }
 
     &__image-container {

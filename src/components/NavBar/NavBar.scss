@@ -1,4 +1,4 @@
-@use '../../styles/variables.scss' as *;
+@use '../../assets/styles/variables' as *;
 
 .nav-bar {
     display: flex;
@@ -8,17 +8,17 @@
     margin: 0 $margin-mobile;
 
     &__link {
-        font-family: 'Libre Baskerville';
+        font-family: 'Libre Baskerville', 'Times New Roman', Times, serif;
         text-decoration: none;
         text-transform: lowercase;
         font-size: 1rem;
         font-weight: 400;
-        color: $color6;
+        color: $color3;
 
         &.active {
             text-transform: uppercase;
             font-size: 2rem;
-            color: $color7;
+            color: $color4;
         }
 
         &:hover {
