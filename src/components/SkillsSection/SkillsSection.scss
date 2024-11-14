@@ -1,7 +1,8 @@
 @use '../../assets/styles/variables' as *;
 
 .skills {
-    margin: 2rem $margin-mobile;
+    margin: 0 $margin-mobile;
+    padding: 1rem 0;
 
     &__heading {
         font-weight: 400;

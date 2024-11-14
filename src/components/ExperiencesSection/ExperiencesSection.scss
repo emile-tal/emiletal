@@ -1,7 +1,8 @@
 @use '../../assets/styles/variables' as *;
 
 .experiences {
-    margin: 2rem $margin-mobile;
+    margin: 0 $margin-mobile;
+    padding: 1rem 0;
 
     &__heading {
         font-weight: 400;
@@ -12,9 +13,9 @@
     }
 
     &__map-container {
-        width: 100%;
+        width: 18rem;
         height: 17rem;
-        padding: 1rem 0;
         position: relative;
+        margin: 0 auto;
     }
 }

@@ -13,8 +13,8 @@ export function ExperiencesSection() {
             <h2 className='experiences__heading'>Past Experiences</h2>
             <div className='experiences__map-container'>
                 <Map />
-                {experienceLocations.map((location) => (
-                    <MapPin location={location} experiences={experiences.filter(experience => experience.locationShortened === location)} />
+                {experienceLocations.map((location, index) => (
+                    <MapPin key={index} location={location} experiences={experiences.filter(experience => experience.locationShortened === location)} />
                 ))}
             </div>
         </section>

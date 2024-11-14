@@ -1,0 +1,29 @@
+@use '../../assets/styles/variables' as *;
+
+.footer {
+    background-color: $color1;
+
+    &__container {
+        margin: 0 $margin-mobile;
+        padding: 1rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__text {
+        color: $color4;
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        font-size: 0.8rem;
+    }
+
+    &__icon-container {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    &__social-icon {
+        height: 1.25rem;
+    }
+}
