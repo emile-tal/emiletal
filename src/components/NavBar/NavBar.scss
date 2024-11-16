@@ -1,4 +1,5 @@
 @use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
 
 .nav-bar {
     display: flex;
@@ -15,10 +16,18 @@
         font-weight: 400;
         color: $color3;
 
+        @include tablet {
+            font-size: 1.5rem;
+        }
+
         &.active {
             text-transform: uppercase;
             font-size: 2rem;
             color: $color4;
+
+            @include tablet {
+                font-size: 3rem;
+            }
         }
 
         &:hover {

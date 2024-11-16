@@ -1,15 +1,23 @@
 @use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
 
 .about {
     margin: 0 $margin-mobile;
     padding-bottom: 1rem;
 
     &__heading {
-        font-weight: 400;
-        padding-bottom: 0.5rem;
-        color: $color4;
-        font-family: 'Libre Baskerville', 'Times New Roman', Times, serif;
-        font-size: 1.5rem;
+        @include title-mobile;
+
+        @include tablet {
+            @include title-tablet;
+        }
+    }
+
+    &__container {
+        @include desktop {
+            display: flex;
+            align-items: flex-start;
+        }
     }
 
     &__content {
@@ -17,6 +25,14 @@
         padding: 0.5rem 0;
         font-family: 'Poppins', Arial, Helvetica, sans-serif;
         font-size: 0.8rem;
+
+        @include tablet {
+            font-size: 1rem;
+        }
+
+        @include desktop {
+            font-size: 1.2rem;
+        }
     }
 
     &__image-container {
@@ -24,11 +40,19 @@
         justify-content: center;
         width: 100%;
         padding: 2rem;
+
+        @include desktop {
+            padding-top: 0;
+        }
     }
 
     &__image {
         max-width: 100%;
         max-height: 20rem;
         border-radius: 100vw;
+
+        @include tablet {
+            min-width: 20rem;
+        }
     }
 }

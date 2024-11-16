@@ -1,4 +1,5 @@
 @use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
 
 .footer {
     background-color: $color1;
@@ -15,6 +16,14 @@
         color: $color4;
         font-family: 'Poppins', Arial, Helvetica, sans-serif;
         font-size: 0.8rem;
+
+        @include tablet {
+            font-size: 1rem;
+        }
+
+        @include desktop {
+            font-size: 1.2rem;
+        }
     }
 
     &__icon-container {
@@ -25,5 +34,14 @@
 
     &__social-icon {
         height: 1.25rem;
+        fill: $color4;
+
+        @include tablet {
+            height: 1.5rem;
+        }
+
+        @include desktop {
+            height: 2rem;
+        }
     }
 }

@@ -1,15 +1,16 @@
 @use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
 
 .skills {
     margin: 0 $margin-mobile;
     padding: 1rem 0;
 
     &__heading {
-        font-weight: 400;
-        padding-bottom: 0.5rem;
-        color: $color4;
-        font-family: 'Libre Baskerville', 'Times New Roman', Times, serif;
-        font-size: 1.5rem;
+        @include title-mobile;
+
+        @include tablet {
+            @include title-tablet;
+        }
     }
 
     &__icon-container {
@@ -26,6 +27,10 @@
 
         &:hover {
             filter: sepia(0);
+        }
+
+        @include tablet {
+            height: 3.5rem;
         }
     }
 }

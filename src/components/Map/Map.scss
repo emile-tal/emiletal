@@ -1,8 +1,13 @@
 @use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
 
 .map {
     width: 100%;
     fill: $color3;
     display: block;
     height: 15rem;
+
+    @include tablet {
+        height: 30rem;
+    }
 }
