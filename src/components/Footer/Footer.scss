@@ -2,7 +2,7 @@
 @use '../../assets/styles/mixins' as *;
 
 .footer {
-    background-color: $color1;
+    background-image: linear-gradient($color1, $color2);
 
     &__container {
         margin: 0 $margin-mobile;
@@ -10,6 +10,16 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @include tablet {
+            margin: 0 $margin-tablet;
+            padding: 2rem 0;
+        }
+
+        @include desktop {
+            width: $desktop-container;
+            margin: 0 auto;
+        }
     }
 
     &__text {

@@ -5,6 +5,15 @@
     margin: 0 $margin-mobile;
     padding-bottom: 1rem;
 
+    @include tablet {
+        margin: 0 $margin-tablet;
+    }
+
+    @include desktop {
+        width: $desktop-container;
+        margin: 0 auto;
+    }
+
     &__heading {
         @include title-mobile;
 
@@ -17,6 +26,7 @@
         @include desktop {
             display: flex;
             align-items: flex-start;
+            gap: 2rem;
         }
     }
 

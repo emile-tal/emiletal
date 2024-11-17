@@ -8,6 +8,16 @@
     gap: 1rem;
     margin: 0 $margin-mobile;
 
+    @include tablet {
+        margin: 0 $margin-tablet;
+    }
+
+    @include desktop {
+        width: $desktop-container;
+        margin: 0 auto;
+        gap: 2rem;
+    }
+
     &__link {
         font-family: 'Libre Baskerville', 'Times New Roman', Times, serif;
         text-decoration: none;

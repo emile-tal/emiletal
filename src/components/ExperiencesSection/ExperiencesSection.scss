@@ -5,6 +5,15 @@
     margin: 0 $margin-mobile;
     padding: 1rem 0;
 
+    @include tablet {
+        margin: 0 $margin-tablet;
+    }
+
+    @include desktop {
+        width: $desktop-container;
+        margin: 0 auto;
+    }
+
     &__heading {
         @include title-mobile;
 
@@ -14,12 +23,16 @@
     }
 
     &__map-container {
-        width: 18rem;
+        width: 16rem;
         position: relative;
         margin: 0 auto;
 
         @include tablet {
             width: 45rem;
+        }
+
+        @include desktop {
+            width: 60rem;
         }
     }
 }
