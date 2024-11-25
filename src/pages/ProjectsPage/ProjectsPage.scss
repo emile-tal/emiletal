@@ -1,0 +1,23 @@
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
+
+.projects-page {
+    height: 100vh;
+    background-color: $color1;
+}
+
+.placeholder {
+    color: $color4;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+    margin: 0 $margin-mobile;
+
+    @include tablet {
+        margin: 0 $margin-tablet;
+    }
+
+    @include desktop {
+        width: $desktop-container;
+        margin: 0 auto;
+    }
+}

@@ -12,6 +12,17 @@
     @include desktop {
         width: $desktop-container;
         margin: 0 auto;
+        padding-bottom: 2.5rem;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        @include tablet {
+            padding-bottom: 1rem;
+        }
     }
 
     &__heading {
@@ -19,6 +30,44 @@
 
         @include tablet {
             @include title-tablet;
+        }
+    }
+
+    &__views {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+            gap: 1rem;
+        }
+    }
+
+    &__view-link {
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        font-size: 0.8rem;
+        color: $color4;
+        padding: 0.25rem 0.5rem;
+        border-radius: 10px;
+        border: $color1 solid 1px;
+
+        @include tablet {
+            font-size: 1rem;
+        }
+
+        @include desktop {
+            font-size: 1.2rem;
+        }
+
+        &:hover {
+            cursor: pointer;
+            border: $color5 solid 1px;
+        }
+
+        &--active {
+            background-color: $color5;
+            border: $color5 solid 1px;
+            font-weight: 400;
         }
     }
 

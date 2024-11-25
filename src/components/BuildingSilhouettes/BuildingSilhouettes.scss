@@ -1,0 +1,45 @@
+.building-silhouettes {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 35rem;
+    margin: 1rem auto;
+
+    &__backdrop {
+        width: 100%;
+    }
+
+    &__building {
+        position: absolute;
+        border-radius: 50%;
+        transition: background-color 0.5s;
+
+        &--school {
+            width: 40%;
+            bottom: 2%;
+            left: 30%;
+            z-index: 3;
+        }
+
+        &--bank {
+            width: 50%;
+            bottom: 2%;
+            left: 0;
+            z-index: 2;
+        }
+
+        &--hotel {
+            height: 60%;
+            bottom: 5%;
+            right: 0;
+            z-index: 1;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgba(186, 152, 84, 0.75);
+            z-index: 4;
+        }
+    }
+}
