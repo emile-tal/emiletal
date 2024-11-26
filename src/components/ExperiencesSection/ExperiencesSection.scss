@@ -81,16 +81,11 @@
     }
 
     &__map-container {
-        width: 16rem;
         position: relative;
-        margin: 0 auto;
-
-        @include tablet {
-            width: 45rem;
-        }
-
-        @include desktop {
-            width: 60rem;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 40rem;
+        margin: 1rem auto;
     }
 }

@@ -5,13 +5,4 @@
     width: 100%;
     fill: $color3;
     display: block;
-    height: 15rem;
-
-    @include tablet {
-        height: 22.5rem;
-    }
-
-    @include desktop {
-        height: 40rem;
-    }
 }

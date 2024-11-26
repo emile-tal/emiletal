@@ -26,46 +26,16 @@
     &--nyc {
         top: 42%;
         left: 23%;
-
-        @include tablet {
-            top: 40%;
-            left: 27.5%;
-        }
-
-        @include desktop {
-            top: 42%;
-            left: 24.5%;
-        }
     }
 
     &--lausanne {
-        top: 40%;
-        right: 48.5%;
-
-        @include tablet {
-            top: 37%;
-            right: 49%;
-        }
-
-        @include desktop {
-            top: 38.75%;
-            right: 49.75%;
-        }
+        top: 36.5%;
+        right: 49.25%;
     }
 
     &--hk {
-        top: 48.5%;
-        right: 15%;
-
-        @include tablet {
-            top: 50%;
-            right: 21%;
-        }
-
-        @include desktop {
-            top: 51%;
-            right: 16.75%;
-        }
+        top: 49.75%;
+        right: 16.5%;
     }
 
     &__number {
