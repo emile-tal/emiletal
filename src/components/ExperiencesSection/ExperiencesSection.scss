@@ -53,6 +53,7 @@
 
         @include tablet {
             font-size: 1rem;
+            border: $color1 solid 2px;
         }
 
         @include desktop {
@@ -62,12 +63,20 @@
         &:hover {
             cursor: pointer;
             border: $color5 solid 1px;
+
+            @include tablet {
+                border: $color5 solid 2px;
+            }
         }
 
         &--active {
             background-color: $color5;
             border: $color5 solid 1px;
             font-weight: 400;
+
+            @include tablet {
+                border: $color5 solid 2px;
+            }
         }
     }
 
