@@ -20,4 +20,9 @@
         width: $desktop-container;
         margin: 0 auto;
     }
+
+    &--logo {
+        font-size: 30rem;
+        font-weight: 300;
+    }
 }

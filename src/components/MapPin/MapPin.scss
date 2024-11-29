@@ -38,12 +38,15 @@
         right: 16.5%;
     }
 
-    &__number {
-        color: $color1;
-        font-size: 0.75rem;
+    &__point {
+        background-color: $color1;
+        height: 0.25rem;
+        width: 0.25rem;
+        border-radius: 50%;
 
         @include tablet {
-            font-size: 1rem;
+            height: 0.5rem;
+            width: 0.5rem;
         }
     }
 }
