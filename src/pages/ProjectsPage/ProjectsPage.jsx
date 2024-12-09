@@ -1,9 +1,11 @@
 import './ProjectsPage.scss'
 
+import { ProjectsContainer } from '../../components/ProjectsContainer/ProjectsContainer'
+
 export function ProjectsPage() {
     return (
         <div className="projects-page">
-            <p className="placeholder">More projects coming soon...</p>
+            <ProjectsContainer />
         </div>
     )
 }

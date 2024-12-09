@@ -1,0 +1,15 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.projects-container {
+    margin: 0 $margin-mobile;
+
+    @include tablet {
+        margin: 0 $margin-tablet;
+    }
+
+    @include desktop {
+        width: $desktop-container;
+        margin: 0 auto;
+    }
+}
