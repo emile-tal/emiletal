@@ -1,0 +1,26 @@
+@use './variables.scss' as *;
+
+@mixin tablet {
+    @media (min-width: $tablet-width) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop-width) {
+        @content;
+    }
+}
+
+@mixin title-mobile {
+    font-weight: 400;
+    padding-bottom: 0.5rem;
+    color: $color4;
+    font-family: 'Libre Baskerville', 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+}
+
+@mixin title-tablet {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
