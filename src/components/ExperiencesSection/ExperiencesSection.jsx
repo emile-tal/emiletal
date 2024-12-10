@@ -22,6 +22,7 @@ export function ExperiencesSection() {
     const toggleExperienceCard = (filter) => {
         if (experienceCard === filter) {
             setExperienceCardOpen(false)
+            setExperienceCard('')
         } else {
             setExperienceCardOpen(true)
             setExperienceCard(filter)

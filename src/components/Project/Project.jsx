@@ -2,7 +2,7 @@ import './Project.scss'
 
 export function Project({ projectName, projectOneliner, projectDescription, projectSrc, projectLink, githubFrontEnd, githubBackEnd }) {
     return (
-        <div className='project'>
+        <article className='project'>
             <a className='project__image-link' href={projectLink}>
                 <img className='project__image' alt={`${projectName} descriptive image of website`} src={projectSrc} />
             </a>
@@ -18,6 +18,6 @@ export function Project({ projectName, projectOneliner, projectDescription, proj
                     <a className='project__link' href={githubBackEnd}>Back-End Repo</a>
                 </div>
             </div>
-        </div>
+        </article>
     )
 }
