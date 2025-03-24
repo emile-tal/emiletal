@@ -1,6 +1,6 @@
 import './Project.scss'
 
-export function Project({ projectName, projectOneliner, projectDescription, projectSrc, projectLink, githubFrontEnd, githubBackEnd }) {
+export function Project({ projectName, projectOneliner, projectDescription, projectSrc, projectLink, githubFrontEnd, githubBackEnd, blog }) {
     return (
         <article className='project'>
             <a className='project__image-link' href={projectLink}>
@@ -15,7 +15,8 @@ export function Project({ projectName, projectOneliner, projectDescription, proj
                 <div className='project__link-container'>
                     <a className='project__link' href={projectLink}>Live Site</a>
                     <a className='project__link' href={githubFrontEnd}>Front-End Repo</a>
-                    <a className='project__link' href={githubBackEnd}>Back-End Repo</a>
+                    {githubBackEnd && <a className='project__link' href={githubBackEnd}>Back-End Repo</a>}
+                    {blog && <a className='project__link' href={blog}>Medium Blog</a>}
                 </div>
             </div>
         </article>

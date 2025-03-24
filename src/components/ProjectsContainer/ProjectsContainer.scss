@@ -3,6 +3,9 @@
 
 .projects-container {
     margin: 0 $margin-mobile;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 
     @include tablet {
         margin: 0 $margin-tablet;
