@@ -1,6 +1,6 @@
 const experiences = [
     {
-        title: 'Regional Manager',
+        title: 'Operations Manager and Web Development Team Liaison',
         company: 'FINDATUTOR.CH',
         location: 'Lausanne, Switzerland',
         locationShortened: 'lausanne',

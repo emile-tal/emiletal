@@ -17,6 +17,7 @@ export function ProjectsContainer() {
                     githubFrontEnd={project.githubFront}
                     githubBackEnd={project.githubBack}
                     blog={project.blog}
+                    github={project.github}
                 />
             ))}
         </div>
