@@ -1,4 +1,4 @@
-export type Location = 'nyc' | 'lausanne' | 'hk'
+export type Location = 'nyc' | 'lausanne' | 'hk' | 'miami'
 
 export type Industry = 'Education' | 'Finance' | 'Hospitality'
 

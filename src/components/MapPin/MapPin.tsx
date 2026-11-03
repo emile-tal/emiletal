@@ -9,6 +9,7 @@ const pinPositions: Record<Location, string> = {
     nyc: 'top-[42%] left-[23%]',
     lausanne: 'top-[36.5%] right-[49.25%]',
     hk: 'top-[49.75%] right-[16.5%]',
+    miami: 'top-[48.5%] left-[21.25%]'
 }
 
 export function MapPin({ location, toggleExperienceCard }: MapPinProps) {

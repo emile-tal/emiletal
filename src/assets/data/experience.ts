@@ -2,6 +2,15 @@ import type { Experience } from '../../types'
 
 const experiences: Experience[] = [
     {
+        title: 'Software Developer',
+        company: 'SAM Labs',
+        location: 'Miami, USA',
+        locationShortened: 'miami',
+        industry: 'Education',
+        startDate: 'Jun 2025',
+        endDate: 'Present'
+    },
+    {
         title: 'Operations Manager and Web Development Team Liaison',
         company: 'FINDATUTOR.CH',
         location: 'Lausanne, Switzerland',
@@ -36,7 +45,7 @@ const experiences: Experience[] = [
         industry: 'Hospitality',
         startDate: 'Apr 2021',
         endDate: 'Aug 2021'
-    }
+    },
 ]
 
 export default experiences

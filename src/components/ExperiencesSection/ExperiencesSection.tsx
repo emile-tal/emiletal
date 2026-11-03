@@ -10,7 +10,7 @@ import { useState } from 'react'
 type ExperienceView = 'location' | 'industry'
 type ExperienceFilter = Location | Industry
 
-const experienceLocations: Location[] = ['nyc', 'lausanne', 'hk']
+const experienceLocations: Location[] = ['nyc', 'lausanne', 'hk', 'miami']
 
 const viewLinkClasses = (isActive: boolean) =>
     `font-poppins text-navy text-[0.8rem] py-1 px-2 rounded-[10px] border tablet:border-2 tablet:text-[1rem] desktop:text-[1.2rem] hover:cursor-pointer ${isActive
