@@ -1,13 +1,10 @@
 export type Location = 'nyc' | 'lausanne' | 'hk' | 'miami'
 
-export type Industry = 'Education' | 'Finance' | 'Hospitality'
-
 export interface Experience {
     title: string
     company: string
     location: string
     locationShortened: Location
-    industry: Industry
     startDate: string
     endDate: string
 }

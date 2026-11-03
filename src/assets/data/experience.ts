@@ -1,12 +1,12 @@
 import type { Experience } from '../../types'
 
+// Ordered newest first: the timeline renders in this order
 const experiences: Experience[] = [
     {
         title: 'Software Developer',
         company: 'SAM Labs',
         location: 'Miami, USA',
         locationShortened: 'miami',
-        industry: 'Education',
         startDate: 'Jun 2025',
         endDate: 'Present'
     },
@@ -15,7 +15,6 @@ const experiences: Experience[] = [
         company: 'FINDATUTOR.CH',
         location: 'Lausanne, Switzerland',
         locationShortened: 'lausanne',
-        industry: 'Education',
         startDate: 'Oct 2023',
         endDate: 'Jun 2024'
     },
@@ -24,7 +23,6 @@ const experiences: Experience[] = [
         company: 'SC Lowy',
         location: 'New York City, USA',
         locationShortened: 'nyc',
-        industry: 'Finance',
         startDate: 'Feb 2023',
         endDate: 'Jul 2023'
     },
@@ -33,7 +31,6 @@ const experiences: Experience[] = [
         company: 'The Pierre',
         location: 'New York City, USA',
         locationShortened: 'nyc',
-        industry: 'Hospitality',
         startDate: 'Aug 2022',
         endDate: 'Sep 2022'
     },
@@ -42,7 +39,6 @@ const experiences: Experience[] = [
         company: 'The Repulse Bay',
         location: 'Hong Kong',
         locationShortened: 'hk',
-        industry: 'Hospitality',
         startDate: 'Apr 2021',
         endDate: 'Aug 2021'
     },
