@@ -9,6 +9,13 @@ interface TimelineProps {
 // Page pixels scrolled per pixel the timeline moves. Higher = slower, more deliberate.
 const SCROLL_SPEED = 1.6
 
+// Where the highlighted entry sits in the frame, as a fraction of its height from the top.
+// It drifts from START to END as you scroll, so the first entry sits near the top of the
+// frame and the last one settles lower instead of leaving empty space beneath it.
+const FOCUS_START = 0.22
+// Mirror of FOCUS_START so the last entry rests as far from the bottom as the first does from the top
+const FOCUS_END = 1 - FOCUS_START
+
 const reducedMotionQuery = '(prefers-reduced-motion: reduce)'
 
 function usePrefersReducedMotion() {
@@ -29,7 +36,7 @@ const clamp = (value: number, min: number, max: number) => Math.min(Math.max(val
  * Vertical career timeline, newest first.
  *
  * The scroll effect is a "pinned" section: the outer wrapper is made tall enough to
- * absorb the scroll distance, while a sticky inner frame holds the viewport still.
+ * absorb the scroll distance, while a sticky full-screen frame holds the viewport still.
  * Scroll progress through the wrapper drives the timeline track upward, so the page
  * appears frozen while only the timeline moves. Because it is plain page scroll,
  * keyboard, trackpad, and scrollbar all keep working.
@@ -40,6 +47,7 @@ export function Timeline({ experiences }: TimelineProps) {
     const [wrapperHeight, setWrapperHeight] = useState<number>()
 
     const wrapperRef = useRef<HTMLDivElement>(null)
+    const stickyRef = useRef<HTMLDivElement>(null)
     const frameRef = useRef<HTMLDivElement>(null)
     const trackRef = useRef<HTMLDivElement>(null)
     const lineRef = useRef<HTMLDivElement>(null)
@@ -49,27 +57,34 @@ export function Timeline({ experiences }: TimelineProps) {
 
     useEffect(() => {
         const wrapper = wrapperRef.current
+        const sticky = stickyRef.current
         const frame = frameRef.current
         const track = trackRef.current
         const line = lineRef.current
         const fill = fillRef.current
-        if (prefersReducedMotion || !wrapper || !frame || !track || !line || !fill) return
+        if (prefersReducedMotion || !wrapper || !sticky || !frame || !track || !line || !fill) return
 
         let travel = 0
+        let stickyTop = 0
         let animationFrame = 0
 
         const update = () => {
             animationFrame = 0
-            const scrollable = travel * SCROLL_SPEED
-            const progress = scrollable > 0 ? clamp(-wrapper.getBoundingClientRect().top / scrollable, 0, 1) : 0
+            const pinnedFor = stickyTop - wrapper.getBoundingClientRect().top
+            // If the page ends before the pin would release (short footer, tall phone),
+            // finish the timeline at the bottom of the page instead of adding blank space.
+            const pinStart = window.scrollY - pinnedFor
+            const pageRemaining = document.documentElement.scrollHeight - window.innerHeight - pinStart
+            const scrollable = Math.min(travel * SCROLL_SPEED, pageRemaining)
+            const progress = scrollable > 0 ? clamp(pinnedFor / scrollable, 0, 1) : 0
             const offset = travel * progress
 
             track.style.transform = `translate3d(0, ${-offset}px, 0)`
             fill.style.transform = `scaleY(${progress})`
             if (hintRef.current) hintRef.current.style.opacity = progress > 0.02 ? '0' : '1'
 
-            // Highlight whichever entry sits closest to the middle of the frame
-            const focusLine = offset + frame.clientHeight / 2
+            // Highlight whichever entry sits closest to the focus line
+            const focusLine = offset + frame.clientHeight * (FOCUS_START + (FOCUS_END - FOCUS_START) * progress)
             let closest = 0
             let closestDistance = Infinity
             itemRefs.current.forEach((item, index) => {
@@ -86,18 +101,20 @@ export function Timeline({ experiences }: TimelineProps) {
         const measure = () => {
             const items = itemRefs.current.filter((item): item is HTMLLIElement => item !== null)
             if (items.length === 0) return
-            const half = frame.clientHeight / 2
+            const height = frame.clientHeight
 
-            // Pad the track so the first entry starts centred and the last entry ends centred
-            track.style.paddingTop = `${half - items[0].offsetHeight / 2}px`
-            track.style.paddingBottom = `${half - items[items.length - 1].offsetHeight / 2}px`
+            // Pad the track so the first entry starts on the start focus and the last ends on the end focus
+            track.style.paddingTop = `${Math.max(0, height * FOCUS_START - items[0].offsetHeight / 2)}px`
+            track.style.paddingBottom = `${Math.max(0, height * (1 - FOCUS_END) - items[items.length - 1].offsetHeight / 2)}px`
             travel = Math.max(0, track.scrollHeight - frame.clientHeight)
 
-            // The rail runs from the first dot to the last; its fill tip tracks the frame's centre
-            line.style.top = `${half}px`
-            line.style.height = `${travel}px`
+            // The rail runs from the first dot to the last; its fill tip tracks the focus line
+            line.style.top = `${height * FOCUS_START}px`
+            line.style.height = `${travel + height * (FOCUS_END - FOCUS_START)}px`
 
-            setWrapperHeight(window.innerHeight + travel * SCROLL_SPEED)
+            // The pinned frame holds still for `travel * SCROLL_SPEED` px of page scroll
+            stickyTop = parseFloat(getComputedStyle(sticky).top) || 0
+            setWrapperHeight(sticky.offsetHeight + travel * SCROLL_SPEED)
             update()
         }
 
@@ -131,7 +148,7 @@ export function Timeline({ experiences }: TimelineProps) {
                 key={`${experience.company}-${experience.startDate}`}
                 ref={element => { itemRefs.current[index] = element }}
                 aria-current={isCurrent ? 'step' : undefined}
-                className='relative flex items-center py-6 pl-10 tablet:py-10 tablet:pl-16'
+                className='relative flex items-center py-7 pl-10 tablet:py-11 tablet:pl-16'
             >
                 <span
                     aria-hidden='true'
@@ -171,7 +188,7 @@ export function Timeline({ experiences }: TimelineProps) {
     if (prefersReducedMotion) {
         return (
             <div className='relative max-w-[40rem] mx-auto my-4'>
-                <div aria-hidden='true' className='absolute left-3 tablet:left-5 top-10 bottom-10 w-0.5 -translate-x-1/2 bg-navy' />
+                <div aria-hidden='true' className='absolute left-3 tablet:left-5 top-6 bottom-6 w-0.5 -translate-x-1/2 bg-navy' />
                 <ol aria-label='Career timeline, most recent first'>{entries}</ol>
             </div>
         )
@@ -179,10 +196,10 @@ export function Timeline({ experiences }: TimelineProps) {
 
     return (
         <div ref={wrapperRef} className='relative' style={{ height: wrapperHeight }}>
-            <div className='sticky top-0 flex flex-col justify-center h-svh'>
+            <div ref={stickyRef} className='sticky top-0 h-svh'>
                 <div
                     ref={frameRef}
-                    className='relative w-full max-w-[40rem] mx-auto h-[75svh] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]'
+                    className='relative w-full max-w-[40rem] h-full mx-auto overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]'
                 >
                     <div ref={trackRef} className='relative will-change-transform'>
                         <div aria-hidden='true' ref={lineRef} className='absolute left-3 tablet:left-5 w-0.5 -translate-x-1/2 bg-sand'>
@@ -196,7 +213,7 @@ export function Timeline({ experiences }: TimelineProps) {
                 <p
                     ref={hintRef}
                     aria-hidden='true'
-                    className='mx-auto mt-2 font-poppins text-[0.8rem] text-bronze transition-opacity duration-300 tablet:text-[0.9rem]'
+                    className='absolute inset-x-0 bottom-0 pt-[10svh] pb-[4svh] bg-linear-to-t from-cream via-cream/90 to-transparent text-center font-poppins text-[0.8rem] text-bronze transition-opacity duration-300 tablet:text-[0.9rem]'
                 >
                     Scroll to go back in time <span className='inline-block motion-safe:animate-bounce'>↓</span>
                 </p>
