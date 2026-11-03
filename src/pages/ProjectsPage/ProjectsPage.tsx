@@ -1,10 +1,8 @@
-import './ProjectsPage.scss'
-
 import { ProjectsContainer } from '../../components/ProjectsContainer/ProjectsContainer'
 
 export function ProjectsPage() {
     return (
-        <div className="projects-page">
+        <div className='min-h-screen bg-cream'>
             <ProjectsContainer />
         </div>
     )

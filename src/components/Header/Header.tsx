@@ -1,10 +1,8 @@
-import './Header.scss'
-
 import { NavBar } from '../NavBar/NavBar'
 
 export function Header() {
     return (
-        <header className='header'>
+        <header className='bg-linear-to-b from-sand to-cream'>
             <NavBar />
         </header>
     )

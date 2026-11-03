@@ -1,4 +1,6 @@
-const experiences = [
+import type { Experience } from '../../types'
+
+const experiences: Experience[] = [
     {
         title: 'Operations Manager and Web Development Team Liaison',
         company: 'FINDATUTOR.CH',

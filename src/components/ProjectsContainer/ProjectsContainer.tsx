@@ -1,14 +1,12 @@
-import './ProjectsContainer.scss'
-
 import { Project } from '../Project/Project'
 import projects from '../../assets/data/projects'
 
 export function ProjectsContainer() {
     return (
-        <div className='projects-container'>
-            {projects.map((project, index) => (
+        <div className='page-container flex flex-col gap-8'>
+            {projects.map((project) => (
                 <Project
-                    key={index}
+                    key={project.name}
                     projectName={project.name}
                     projectOneliner={project.oneLiner}
                     projectDescription={project.description}

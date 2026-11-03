@@ -1,8 +1,9 @@
+import type { Project } from '../../types'
 import checkIn from '../images/check-in-image.png'
 import recipiz from '../images/recipiz-image.png'
 import vibeBnb from '../images/vibebnb-image.png'
 
-const projects = [
+const projects: Project[] = [
     {
         name: 'Recipiz',
         oneLiner: 'Recipe sharing platform',

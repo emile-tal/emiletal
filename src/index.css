@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+
+@theme {
+    /* Breakpoints (were $tablet-width / $desktop-width) */
+    --breakpoint-tablet: 768px;
+    --breakpoint-desktop: 1280px;
+
+    /* Palette (were $color1 – $color5) */
+    --color-cream: #F5F5DD;
+    --color-sand: #DACAA4;
+    --color-bronze: #886a37;
+    --color-navy: #07005c;
+    --color-tan: #d1bb91;
+
+    /* Fonts (loaded from Google Fonts in index.html) */
+    --font-poppins: 'Poppins', Arial, Helvetica, sans-serif;
+    --font-baskerville: 'Libre Baskerville', 'Times New Roman', Times, serif;
+}
+
+@layer base {
+    /* Preflight sets 1.5; keep the browser default the site was designed with */
+    html {
+        line-height: normal;
+    }
+}
+
+/* Shared page-width wrapper (was $margin-mobile / $margin-tablet / $desktop-container) */
+@utility page-container {
+    margin-inline: 1rem;
+
+    @variant tablet {
+        margin-inline: 2.5rem;
+    }
+
+    @variant desktop {
+        width: 72rem;
+        margin-inline: auto;
+    }
+}
+
+/* Section headings (was the title-mobile / title-tablet mixins) */
+@utility section-title {
+    font-family: var(--font-baskerville);
+    font-weight: 400;
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
+    color: var(--color-navy);
+
+    @variant tablet {
+        font-size: 2rem;
+        padding-bottom: 1rem;
+    }
+}
