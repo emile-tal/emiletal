@@ -36,6 +36,13 @@
     html {
         line-height: normal;
     }
+
+    /* In-page nav links glide to their section unless the visitor prefers reduced motion */
+    @media (prefers-reduced-motion: no-preference) {
+        html {
+            scroll-behavior: smooth;
+        }
+    }
 }
 
 /* Shared page-width wrapper (was $margin-mobile / $margin-tablet / $desktop-container) */

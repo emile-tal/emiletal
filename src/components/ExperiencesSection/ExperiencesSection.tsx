@@ -66,7 +66,8 @@ export function ExperiencesSection() {
 
     return (
         <section
-            className='page-container py-4 desktop:pb-10'
+            id='experience'
+            className='page-container scroll-mt-6 py-8 desktop:py-12'
             aria-labelledby='experiences-title'
             onKeyDown={handleSectionKeyDown}
         >

@@ -1,13 +1,15 @@
 import { AboutSection } from '../../components/AboutSection/AboutSection'
+import { BackgroundSection } from '../../components/BackgroundSection/BackgroundSection'
 import { ExperiencesSection } from '../../components/ExperiencesSection/ExperiencesSection'
-import { SkillsSection } from '../../components/SkillsSection/SkillsSection'
+import { HighlightsSection } from '../../components/HighlightsSection/HighlightsSection'
 
 export function HomePage() {
     return (
         <main className='min-h-screen bg-cream'>
             <AboutSection />
-            <SkillsSection />
+            <HighlightsSection />
             <ExperiencesSection />
+            <BackgroundSection />
         </main>
     )
 }

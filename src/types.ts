@@ -9,14 +9,15 @@ export interface Experience {
     endDate: string
 }
 
-export interface Project {
-    name: string
-    oneLiner: string
-    description: string
-    src: string
-    link: string
-    github?: string
-    githubFront?: string
-    githubBack?: string
-    blog?: string
+export interface Stat {
+    value: string
+    label: string
+}
+
+export interface Highlight {
+    company: string
+    title: string
+    stats: Stat[]
+    paragraphs: string[]
+    tools: string[]
 }
