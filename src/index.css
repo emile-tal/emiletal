@@ -59,16 +59,96 @@
     }
 }
 
-/* Section headings (was the title-mobile / title-tablet mixins) */
+/*
+ * Shared type scale. Every section uses these so headings, body copy and labels
+ * line up across the page; change a size here, not in a component.
+ */
+
+/* Section headings. The bottom margin is the only gap between a heading and its content */
 @utility section-title {
     font-family: var(--font-baskerville);
     font-weight: 400;
     font-size: 1.5rem;
-    padding-bottom: 0.5rem;
+    line-height: 1.25;
+    margin-bottom: 1rem;
     color: var(--color-navy);
 
     @variant tablet {
         font-size: 2rem;
-        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Headings inside a section: highlight cards, timeline entries, location cards */
+@utility card-title {
+    font-family: var(--font-baskerville);
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 1.35;
+    color: var(--color-navy);
+
+    @variant tablet {
+        font-size: 1.6rem;
+    }
+}
+
+/* Running copy */
+@utility body-text {
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    line-height: 1.625;
+    color: var(--color-navy);
+
+    @variant tablet {
+        font-size: 1rem;
+    }
+
+    @variant desktop {
+        font-size: 1.1rem;
+    }
+}
+
+/* Small uppercase labels above a value or title */
+@utility eyebrow {
+    font-family: var(--font-poppins);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-bronze);
+
+    @variant tablet {
+        font-size: 0.85rem;
+    }
+}
+
+/* Secondary details: dates, stat labels, tags */
+@utility meta-text {
+    font-family: var(--font-poppins);
+    font-size: 0.8rem;
+    color: var(--color-bronze);
+
+    @variant tablet {
+        font-size: 0.9rem;
+    }
+}
+
+/* Vertical rhythm between sections */
+@utility section-spacing {
+    padding-block: 2rem;
+
+    @variant desktop {
+        padding-block: 3rem;
+    }
+}
+
+/* Card surface shared by highlights, background facts and the location card */
+@utility card-surface {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-sand);
+    background-color: color-mix(in oklab, var(--color-sand) 20%, transparent);
+    padding: 1.25rem;
+
+    @variant tablet {
+        padding: 2rem;
     }
 }

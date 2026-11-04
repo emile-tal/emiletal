@@ -67,12 +67,12 @@ export function ExperiencesSection() {
     return (
         <section
             id='experience'
-            className='page-container scroll-mt-6 py-8 desktop:py-12'
+            className='page-container section-spacing scroll-mt-6'
             aria-labelledby='experiences-title'
             onKeyDown={handleSectionKeyDown}
         >
-            <div className='flex justify-between items-start tablet:pb-4'>
-                <h2 id='experiences-title' className='section-title'>Past Experiences</h2>
+            <div className='flex justify-between items-start gap-4'>
+                <h2 id='experiences-title' className='section-title'>Past experiences</h2>
                 <div
                     role='tablist'
                     aria-label='Browse experiences by'
@@ -115,7 +115,7 @@ export function ExperiencesSection() {
                         <div
                             role='group'
                             aria-label='Locations'
-                            className='relative flex justify-center items-center max-w-[40rem] my-4 mx-auto'
+                            className='relative flex justify-center items-center max-w-[40rem] mx-auto'
                         >
                             <Map />
                             {experienceLocations.map(location => (

@@ -164,7 +164,7 @@ export function Timeline({ experiences }: TimelineProps) {
                 <article
                     className={`flex flex-col gap-1 font-poppins text-navy origin-left motion-safe:transition-[opacity,transform] motion-safe:duration-500 ${isActive ? 'opacity-100 scale-100' : 'opacity-35 scale-95'}`}
                 >
-                    <p className='flex items-center gap-2 text-[0.8rem] tablet:text-[1rem] text-bronze'>
+                    <p className='meta-text flex items-center gap-2'>
                         <time>{experience.startDate}</time>
                         <span aria-hidden='true'>–</span>
                         <span className='sr-only'>to</span>
@@ -173,8 +173,8 @@ export function Timeline({ experiences }: TimelineProps) {
                             <span className='ml-1 rounded-full bg-navy px-2 py-0.5 text-[0.7rem] text-cream uppercase tracking-wider tablet:text-[0.8rem]'>Now</span>
                         )}
                     </p>
-                    <h3 className='font-baskerville text-[1.3rem] leading-tight tablet:text-[2rem]'>{experience.title}</h3>
-                    <p className='text-[0.9rem] tablet:text-[1.1rem]'>
+                    <h3 className='card-title'>{experience.title}</h3>
+                    <p className='body-text'>
                         <span className='font-semibold'>{experience.company}</span>
                         <span aria-hidden='true'> · </span>
                         <span className='sr-only'>, </span>
@@ -187,7 +187,7 @@ export function Timeline({ experiences }: TimelineProps) {
 
     if (prefersReducedMotion) {
         return (
-            <div className='relative max-w-[40rem] mx-auto my-4'>
+            <div className='relative max-w-[40rem] mx-auto'>
                 <div aria-hidden='true' className='absolute left-3 tablet:left-5 top-6 bottom-6 w-0.5 -translate-x-1/2 bg-navy' />
                 <ol aria-label='Career timeline, most recent first'>{entries}</ol>
             </div>
@@ -213,7 +213,7 @@ export function Timeline({ experiences }: TimelineProps) {
                 <p
                     ref={hintRef}
                     aria-hidden='true'
-                    className='absolute inset-x-0 bottom-0 pt-[10svh] pb-[4svh] bg-linear-to-t from-cream via-cream/90 to-transparent text-center font-poppins text-[0.8rem] text-bronze transition-opacity duration-300 tablet:text-[0.9rem]'
+                    className='absolute inset-x-0 bottom-0 pt-[10svh] pb-[4svh] bg-linear-to-t from-cream via-cream/90 to-transparent text-center meta-text transition-opacity duration-300'
                 >
                     Scroll to go back in time <span className='inline-block motion-safe:animate-bounce'>↓</span>
                 </p>

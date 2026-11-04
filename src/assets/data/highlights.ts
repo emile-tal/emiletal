@@ -3,6 +3,27 @@ import type { Highlight } from '../../types'
 const highlights: Highlight[] = [
     {
         company: 'SAM Labs',
+        title: 'Rebuilding SAM Studio from the ground up',
+        status: 'In development',
+        paragraphs: [
+            'SAM Studio is where students code SAM Labs’ hardware using blocks, flow diagrams, or real Python. The previous app had hit limits we couldn’t patch, so we’re rebuilding it from scratch, starting with the database.',
+            'I’m one of three engineers on the rebuild, and I work across all of it: designing interfaces, building front-end features, and shaping the backend and schema as features land. I brought Python into the browser with Pyodide, so students can run real Python inside the app while everything else stays responsive, and I built the block-based coding interface on Blockly.',
+            'The new platform is in development, designed around years of feedback from students, teachers, and school admins on the previous app.',
+        ],
+        tools: ['React', 'Zustand', 'NestJS', 'MySQL', 'Pyodide', 'Blockly'],
+    },
+    {
+        company: 'SAM Labs',
+        title: 'Future Ready Skills Tracker: one dashboard, scoped to every role',
+        status: 'Launched 2026',
+        paragraphs: [
+            'Schools wanted to track students’ soft skills, scored by teachers in tracking sessions, and see progress at every level: class, school, and district.',
+            'I focused on the data layer behind the dashboards. Every request is scoped in the query itself, so teachers, school admins, and district admins see the same kinds of graphs, but the database only ever returns their own data. NestJS guards decide who can create sessions, edit school goals, or manage users. To keep dashboards fast as data grows, I pushed aggregation into SQL instead of computing it in the app, fetched related data with joins and parallel queries, selected only the columns each view needed, and built a reusable cursor-based pagination service the rest of the API can use. Multi-step writes, like saving a tracking session with all its scores, run in transactions so data never ends up half-saved.',
+        ],
+        tools: ['React', 'NestJS', 'MySQL', 'Drizzle'],
+    },
+    {
+        company: 'SAM Labs',
         title: 'In-house lesson and assessment editor (Lexical)',
         stats: [
             { value: '400,000+', label: 'students' },

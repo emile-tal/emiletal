@@ -2,7 +2,7 @@ export function Footer() {
     return (
         <footer className='bg-linear-to-b from-cream to-sand'>
             <div className='page-container flex items-center justify-between py-4 tablet:py-8'>
-                <p className='font-poppins text-navy text-[0.8rem] tablet:text-[1rem] desktop:text-[1.2rem]'>Find me here...</p>
+                <p className='body-text'>Find me here...</p>
                 <div className='flex items-center gap-3'>
                     <a href='https://github.com/emile-tal' target='_blank' rel='noreferrer'>
                         <svg viewBox="0 0 128 128" className='h-5 fill-navy tablet:h-6 desktop:h-8'>

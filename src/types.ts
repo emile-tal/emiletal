@@ -17,7 +17,9 @@ export interface Stat {
 export interface Highlight {
     company: string
     title: string
-    stats: Stat[]
+    // Cards show either headline numbers or a short status label in the same slot
+    stats?: Stat[]
+    status?: string
     paragraphs: string[]
     tools: string[]
 }
